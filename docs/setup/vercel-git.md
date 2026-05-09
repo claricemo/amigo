@@ -8,6 +8,13 @@ Use Vercel’s Git integration so pushes to GitHub trigger deployments.
 
 That opens the flow to link GitHub (or GitLab / Bitbucket) and pick a repo.
 
+## Canonical repository
+
+- **HTTPS:** `https://github.com/claricemo/amigo.git`
+- **Web:** [github.com/claricemo/amigo](https://github.com/claricemo/amigo)
+
+If **Connect** fails for a **private** repo, grant the **Vercel** GitHub App access to `claricemo/amigo` under GitHub → **Settings** → **Applications** → **Installed GitHub Apps** → **Vercel** → **Configure** → repository access.
+
 ## Amigo
 
 1. Sign in at [vercel.com](https://vercel.com).
