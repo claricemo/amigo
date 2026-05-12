@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple guide: Cursor, Git, GitHub, Vercel &amp; Amigo</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #444;
+      --border: #ccc;
+      --bg-soft: #f7f7f5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12pt;
+      line-height: 1.5;
+      color: var(--text);
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+    }
+    h2 {
+      font-size: 1.15rem;
+      margin-top: 1.75rem;
+      page-break-after: avoid;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 1.25rem;
+      font-weight: bold;
+    }
+    p { margin: 0.65rem 0; }
+    .muted { color: var(--muted); font-size: 11pt; }
+    .box {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+    .box strong { display: block; margin-bottom: 0.35rem; }
+    ol.steps { margin: 0.5rem 0 0 1.25rem; padding: 0; }
+    ol.steps li { margin: 0.4rem 0; }
+    ul { margin: 0.4rem 0 0.5rem 1.1rem; }
+    code, .path {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.95em;
+      background: #eee;
+      padding: 0.1em 0.35em;
+      border-radius: 2px;
+    }
+    .print-hint {
+      font-size: 10pt;
+      color: var(--muted);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border);
+    }
+    @media print {
+      body { padding: 0; max-width: none; }
+      .no-print { display: none; }
+      h2 { page-break-before: auto; }
+      .box { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <p class="muted no-print"><strong>Save as PDF:</strong> In Chrome or Edge, press Ctrl+P → Destination → Save as PDF → Save.</p>
+
+  <h1>Very simple guide: the tools behind Amigo</h1>
+  <p class="muted">Written for Clarice. Plain words, small examples, and the order that usually makes sense.</p>
+
+  <h2>1. The big picture</h2>
+  <p><strong>Amigo</strong> is an app (a website that can feel like an app on your phone). You keep the <strong>recipe</strong> for that app in one folder on your computer. When you change the recipe, you can save a snapshot (that’s <strong>Git</strong>), upload it to a safe copy online (<strong>GitHub</strong>), and tell the internet to show the latest version to anyone with the link (<strong>Vercel</strong>). You edit the recipe in <strong>Cursor</strong>, an editor that can help you think and type faster—like a smart notebook that suggests fixes.</p>
+
+  <div class="box">
+    <strong>Short analogy</strong>
+    <ul>
+      <li><strong>Your project folder</strong> (<code>E:\Amigo</code>) = your kitchen where you cook.</li>
+      <li><strong>Git</strong> = dated photos of each version of the dish (“what changed today?”).</li>
+      <li><strong>GitHub</strong> = a cloud photo album the kitchen can sync with.</li>
+      <li><strong>Vercel</strong> = the restaurant window that serves the latest dish to guests (your phone).</li>
+      <li><strong>Cursor</strong> = your notebook + a calm sous-chef who reads the recipe with you.</li>
+    </ul>
+  </div>
+
+  <h2>2. What is a repository (“repo”)?</h2>
+  <p>A <strong>repository</strong> is a <strong>project folder that Git is watching</strong>. It usually lives on your computer and has a twin on GitHub with the same history.</p>
+  <p><strong>Example:</strong> <code>E:\Amigo</code> on your PC is your local repo. <code>github.com/claricemo/amigo</code> is the online copy. They talk through <strong>push</strong> (send changes up) and <strong>pull</strong> (bring changes down).</p>
+  <p>You need a repo so you never have twelve mystery copies of “Amigo-final-really-final.” One history, one truth.</p>
+
+  <h2>3. Why Git?</h2>
+  <p><strong>Git</strong> remembers <strong>snapshots</strong> of your files and lets you say “this change is one saved step” (a <strong>commit</strong>). If something breaks, you can step back.</p>
+  <p><strong>Function:</strong> history + undo + “what did I change?”</p>
+  <p><strong>Basic use:</strong> after editing files → <strong>stage</strong> (pick what goes in this snapshot) → <strong>commit</strong> (save snapshot with a short note) → <strong>push</strong> (send to GitHub).</p>
+  <p><strong>You need it because</strong> Amigo will grow. Without Git, one wrong delete can ruin a weekend.</p>
+
+  <h2>4. Why GitHub?</h2>
+  <p><strong>GitHub</strong> stores your repo on the internet, backs it up, and lets tools like <strong>Vercel</strong> read your code when you want automatic deploys.</p>
+  <p><strong>Function:</strong> online home for <code>claricemo/amigo</code>, issues, and collaboration if you ever invite someone.</p>
+  <p><strong>Basic use:</strong> create account → create repo → connect your computer’s Git to that URL → push.</p>
+  <p><strong>You need it because</strong> your laptop can fail; GitHub is the backup and the bridge to hosting.</p>
+
+  <h2>5. Why Cursor?</h2>
+  <p><strong>Cursor</strong> is a code editor built like VS Code, with <strong>AI help inside the same window</strong> where you edit files. You can ask it to explain an error, sketch a small change, or follow rules you wrote for the project (like your Amigo master prompt).</p>
+  <p><strong>Function:</strong> edit code + get focused help without juggling ten browser tabs.</p>
+  <p><strong>Basic use:</strong> open folder <code>E:\Amigo</code> → chat or inline edits → save files → commit in Git when happy.</p>
+  <p><strong>You need it (for this workflow)</strong> because Amigo is built faster and calmer with an editor that understands the whole folder—not because Cursor runs the live website (it doesn’t).</p>
+
+  <h2>6. Why Vercel?</h2>
+  <p><strong>Vercel</strong> takes your Next.js project and builds a <strong>public website</strong> at a URL like <code>something.vercel.app</code>. Your phone can open that URL even when your laptop is closed.</p>
+  <p><strong>Function:</strong> build + host + HTTPS + optional “deploy every time you push to main.”</p>
+  <p><strong>Basic use:</strong> connect project once → deploy → bookmark production URL. Optional: connect GitHub so each push updates the site.</p>
+  <p><strong>You need it because</strong> Amigo is meant to be used on your phone in real life—not only on localhost.</p>
+
+  <h2>7. Other things Amigo will need later (not all on day one)</h2>
+  <ul>
+    <li><strong>Node.js / npm</strong> — runs your Next.js app on your computer (<code>npm run dev</code>). Comes with installing dependencies for the project.</li>
+    <li><strong>.env files</strong> — secret keys live in <code>.env.local</code> on your machine only; never committed. <code>.env.example</code> lists names without real secrets.</li>
+    <li><strong>Supabase</strong> (later) — database for the journal; stays in your account.</li>
+    <li><strong>Anthropic API</strong> (later) — powers chat / Untangler; costs a little; keys stay server-side.</li>
+  </ul>
+
+  <h2>8. Which order to set up first?</h2>
+  <p>Use this order so each step has something to plug into:</p>
+  <ol class="steps">
+    <li><strong>GitHub account</strong> + create the empty repo <code>amigo</code> (if you haven’t).</li>
+    <li><strong>Git on your PC</strong> + clone or connect your folder to <code>https://github.com/claricemo/amigo.git</code>.</li>
+    <li><strong>Cursor</strong> → open <code>E:\Amigo</code> as the workspace.</li>
+    <li><strong>Node</strong> → in the project folder, run <code>npm install</code> once so dependencies exist.</li>
+    <li><strong>Run locally</strong> → <code>npm run dev</code> → check <code>http://localhost:3000</code>.</li>
+    <li><strong>Vercel account</strong> → import / link the GitHub repo → get a live URL.</li>
+    <li><strong>Optional but nice:</strong> connect GitHub to Vercel so pushes deploy automatically (private repos need GitHub → Vercel app permission).</li>
+    <li><strong>Later phases:</strong> Supabase, API keys, passphrase login—when the specs say so.</li>
+  </ol>
+
+  <h2>9. How to “access” each thing (where to click)</h2>
+  <ul>
+    <li><strong>Your code folder:</strong> File Explorer → <code>E:\Amigo</code>.</li>
+    <li><strong>GitHub repo in browser:</strong> <code>https://github.com/claricemo/amigo</code></li>
+    <li><strong>Vercel dashboard:</strong> <code>https://vercel.com/dashboard</code> → pick team → project <strong>amigo</strong>.</li>
+    <li><strong>Live site:</strong> your production URL from Vercel (e.g. <code>https://amigo-theta-lovat.vercel.app</code>—yours may differ).</li>
+    <li><strong>Cursor:</strong> File → Open Folder → <code>E:\Amigo</code>.</li>
+  </ul>
+
+  <h2>10. One-page checklist</h2>
+  <div class="box">
+    <strong>Minimum “Amigo is real online”</strong>
+    <ol class="steps">
+      <li>Code in <code>E:\Amigo</code>, pushed to GitHub.</li>
+      <li>Vercel project linked to that repo or deployed with CLI.</li>
+      <li>Open production URL on your phone → see “Hello Amigo.”</li>
+    </ol>
+  </div>
+
+  <p class="print-hint">End of guide. To make a PDF: open this file in Chrome or Edge → Ctrl+P → Save as PDF.</p>
+
+</body>
+</html>
